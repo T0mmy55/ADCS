@@ -36,7 +36,7 @@ from the use or distribution of the Sample Code..
 
 .REQUIREMENTS 
 #  - Run on a Domain Controller OR domain-joined machine with RSAT installed
-#  - Requires Domain Admin or SPECIFIC access right to connect remote machines
+#  - Requires Domain Admin or SPECIFIC access right to connect to remote machines
 #  - PowerShell v2 or above
 
 .EXAMPLE
@@ -447,4 +447,5 @@ $body = Get-Content "C:\Temp\SSL Expiry\SSL_Certificates_Report.html" -Raw
 #send-mailmessage -from "noreply@contoso.com" -to $ToAddressDEST -Cc $ToAddressCC -subject "Contoso : $date - [LAN : SSL Certificate report ] " -Body $body -BodyAsHtml -smtpServer $SMTPServer -port 25
 Write-Host "Email sent to recipients!" -ForegroundColor Green
 }
+
 Write-Host "END Of Script! :)" -ForegroundColor Blue
