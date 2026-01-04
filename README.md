@@ -13,9 +13,9 @@
 └── [Stats] Total scanned, expiring counts by timeframe
 
 .REQUIREMENTS 
-#  - Run on a Domain Controller OR domain-joined machine with RSAT installed
-#  - Requires Domain Admin or SPECIFIC access right to connect to remote machines
-#  - PowerShell v2 or above
++ Run on a Domain Controller OR domain-joined machine with RSAT installed
++ Requires Domain Admin or SPECIFIC access right to connect to remote machines
++ PowerShell v2 or above
 
 .EXAMPLE
     .\Get_SSL_Certificates - v1.ps1
