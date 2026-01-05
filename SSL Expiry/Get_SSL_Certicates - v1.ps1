@@ -1,4 +1,4 @@
-﻿<############################# INFORMATION ####################################
+﻿<#
 # SSL X509Certificates Inventory & Expiry Scanner v1.0
 # Created 01/04/2026
 # Author : ennebet.othmane@gmail.com
@@ -35,9 +35,9 @@ from the use or distribution of the Sample Code..
 └── [Stats] Total scanned, expiring counts by timeframe
 
 .REQUIREMENTS 
-#  - Run on a Domain Controller OR domain-joined machine with RSAT installed
-#  - Requires Domain Admin or SPECIFIC access right to connect to remote machines
-#  - PowerShell v2 or above
+- Run on a Domain Controller OR domain-joined machine with RSAT installed
+- Requires Domain Admin or SPECIFIC access right to connect to remote machines
+- PowerShell v2 or above
 
 .EXAMPLE
     .\Get_SSL_Certificates - v1.ps1
@@ -240,8 +240,6 @@ $targetDate = $_.notafter
 $currentDate = Get-Date
 $monthsLeft = (($targetDate.Year - $currentDate.Year) * 12) + ($targetDate.Month - $currentDate.Month)
 
-
-
 # Current Year
 
 if(($_.notafter).year -eq (get-date).year  ){
@@ -259,10 +257,10 @@ Write-host "==> CRITICAL : Expires Current Month +$monthsLeft" -ForegroundColor 
 # Expiring in 3 Months
 
 elseif ($monthsLeft -eq 3){
-$ExpIn3months ++
 $DataRaw +="<td bgcolor='#0FBFC0' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
 $DataRaw +="<td bgcolor='#0FBFC0' align=center><font color='#FFFFFF'> Expiring In 3 month(s)</td></tr>"
 Write-host "==> WRN : Expires in +$monthsLeft months" -ForegroundColor Yellow
+$ExpIn3months ++
 }
 
 # Valid Certificates Month
@@ -270,7 +268,7 @@ Write-host "==> WRN : Expires in +$monthsLeft months" -ForegroundColor Yellow
 elseif ($monthsLeft -gt $month0){
 $DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
 $DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> In " + $monthsLeft + " month(s)</td></tr>"
-Write-host "==> Info : ✅ Valid Certificate Days Left +$monthsLeft" -ForegroundColor DarkMagenta
+Write-host "==> Info : ✅ Valid Certificate =>Months Left +$monthsLeft" -ForegroundColor DarkMagenta
 }
 
 # Expired Certificates
@@ -294,8 +292,6 @@ $DataRaw +="<td bgcolor='#dedede' align=center><font color='#000000'> -</td>"
 $DataRaw +="<td bgcolor='#dedede' align=center><font color='#000000'> -</td>"
 $DataRaw += "<td bgcolor='#dedede' align=center><font color='#000000'> - </td>"
 $DataRaw +="<td bgcolor='#dedede' align=center><font color='#000000'> -</td></tr>"
-
-
 }
 $all += $beginning + $DataRaw + $TREND
 $DataRaw = $null
@@ -303,9 +299,7 @@ $DataRaw = $null
 
 $NbrCrtDiplayHtml = $null
 
-
 }
-
 else {
 Write-Host "[!] Cannot Get Infos From " $S -ForegroundColor Red
 }
@@ -449,3 +443,4 @@ Write-Host "Email sent to recipients!" -ForegroundColor Green
 }
 
 Write-Host "END Of Script! :)" -ForegroundColor Blue
+
