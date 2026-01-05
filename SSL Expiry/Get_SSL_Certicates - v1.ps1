@@ -1,4 +1,4 @@
-﻿<#
+<#
 # SSL X509Certificates Inventory & Expiry Scanner v1.0
 # Created 01/04/2026
 # Author : ennebet.othmane@gmail.com
@@ -60,7 +60,7 @@ $NbrCrtDiplayHtml = 0
 $ExpIn3months = 0
 $ExpIred = 0
 $CertStores = (Get-ChildItem Cert:\).StoreNames.Keys | Select-Object -Unique
-$month0 = "0"
+$month0 = 0
 $year = (get-date).year 
 $DataRaw = ""
 
@@ -249,17 +249,9 @@ $CertExpiringYear++
 # Current Month
 if ($monthsLeft -eq $month0){
 $CertExpiring0Month++
-$DataRaw +="<td bgcolor='#f71423' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
-$DataRaw +="<td bgcolor='#f71423' align=center><font color='#FFFFFF'> In " + $monthsLeft + " month(s)</td></tr>"
+$DataRaw +="<td bgcolor='#FFFF00' align=center><font color='#000000'> " + $_.notAfter+ " </td>"
+$DataRaw +="<td bgcolor='#FFFF00' align=center><font color='#000000'> Expiring this Month!</td></tr>"
 Write-host "==> CRITICAL : Expires Current Month +$monthsLeft" -ForegroundColor RED
-}
-
-# Valid Certificates Month
-
-elseif ($monthsLeft -gt $month0){
-$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
-$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> In " + $monthsLeft + " month(s)</td></tr>"
-Write-host "==> Info : ✅ Valid Certificate =>Months Left +$monthsLeft" -ForegroundColor DarkMagenta
 }
 
 # Expiring in 3 Months
@@ -270,6 +262,16 @@ $DataRaw +="<td bgcolor='#0FBFC0' align=center><font color='#FFFFFF'> Expiring I
 Write-host "==> WRN : Expires in +$monthsLeft months" -ForegroundColor Yellow
 $ExpIn3months ++
 }
+
+
+# Valid Certificates Month
+
+elseif ($monthsLeft -gt $month0){
+$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
+$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> In " + $monthsLeft + " month(s)</td></tr>"
+Write-host "==> Info : ✅ Valid Certificate =>Months Left +$monthsLeft" -ForegroundColor DarkMagenta
+}
+
 
 # Expired Certificates
 elseif ($monthsLeft -lt $month0){
@@ -443,5 +445,4 @@ Write-Host "Email sent to recipients!" -ForegroundColor Green
 }
 
 Write-Host "END Of Script! :)" -ForegroundColor Blue
-
 
