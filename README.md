@@ -22,11 +22,9 @@
 
 . Excecution and results 
 
-<img width="977" height="485" alt="image" src="https://github.com/user-attachments/assets/73767aaa-daf0-4b4b-9158-86a1041bd8bc" />
+<img width="650" height="403" alt="image" src="https://github.com/user-attachments/assets/67eb40c5-952a-4433-9b57-ab1a0d6be9cb" />
 
-<img width="980" height="512" alt="image" src="https://github.com/user-attachments/assets/3b8a9249-a12e-4ea5-928c-3560f3124d82" />
-
-<img width="977" height="511" alt="image" src="https://github.com/user-attachments/assets/e4c04df7-c83a-4757-bdbc-69d08dd7bfba" />
+<img width="702" height="401" alt="image" src="https://github.com/user-attachments/assets/6ffe3d69-be4d-4a76-a91c-9234efaa53b4" />
 
 <img width="959" height="353" alt="image" src="https://github.com/user-attachments/assets/67b83236-733d-4dfc-82b8-b09ece3ff6f8" />
 
