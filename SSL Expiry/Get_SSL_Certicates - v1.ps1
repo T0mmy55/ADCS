@@ -254,6 +254,14 @@ $DataRaw +="<td bgcolor='#f71423' align=center><font color='#FFFFFF'> In " + $mo
 Write-host "==> CRITICAL : Expires Current Month +$monthsLeft" -ForegroundColor RED
 }
 
+# Valid Certificates Month
+
+elseif ($monthsLeft -gt $month0){
+$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
+$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> In " + $monthsLeft + " month(s)</td></tr>"
+Write-host "==> Info : ✅ Valid Certificate =>Months Left +$monthsLeft" -ForegroundColor DarkMagenta
+}
+
 # Expiring in 3 Months
 
 elseif ($monthsLeft -eq 3){
@@ -261,14 +269,6 @@ $DataRaw +="<td bgcolor='#0FBFC0' align=center><font color='#FFFFFF'> " + $_.not
 $DataRaw +="<td bgcolor='#0FBFC0' align=center><font color='#FFFFFF'> Expiring In 3 month(s)</td></tr>"
 Write-host "==> WRN : Expires in +$monthsLeft months" -ForegroundColor Yellow
 $ExpIn3months ++
-}
-
-# Valid Certificates Month
-
-elseif ($monthsLeft -gt $month0){
-$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> " + $_.notAfter+ " </td>"
-$DataRaw +="<td bgcolor='#387C44' align=center><font color='#FFFFFF'> In " + $monthsLeft + " month(s)</td></tr>"
-Write-host "==> Info : ✅ Valid Certificate =>Months Left +$monthsLeft" -ForegroundColor DarkMagenta
 }
 
 # Expired Certificates
@@ -443,4 +443,5 @@ Write-Host "Email sent to recipients!" -ForegroundColor Green
 }
 
 Write-Host "END Of Script! :)" -ForegroundColor Blue
+
 
